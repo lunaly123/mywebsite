@@ -12,7 +12,7 @@ $("#newscontrol").click(() => {
         duration: 1000,
         complete: () => {
           $("#news").addClass("show");
-          // $("#news").gravity();
+          $("#news").gravity();
         }
       }
     );
@@ -25,7 +25,7 @@ $("#newscontrol").click(() => {
     });
   }
 });
-
+$('#pengzhuang').gravity();
 $(document).on("mousemove", ev => {
   let x = $("#indexgs").width() / 2;
   let y = $("#indexgs").height() / 2;
@@ -68,9 +68,10 @@ $("#nav ul li:gt(0)").click(function() {
     if($(this).hasClass('show')){
       $(this).removeClass('show');
       $(this).velocity(
-        { bottom: -468 },
+        { bottom: -386 },
         {
           duration: 1000,
+          easing:[ 300, 20],
           complete: () => {
             $(".content li").css({ visibility: "hidden" });
           }
@@ -86,9 +87,10 @@ $("#nav ul li:gt(0)").click(function() {
   $("#showWrapper li")
     .eq(index)
     .velocity(
-      { bottom: 468 },
+      { bottom: 386 },
       {
-        duration: 1000
+        duration: 1000,
+        easing:[ 300, 20],
       }
     );
   $("#news").velocity(
@@ -115,9 +117,10 @@ $("#workclose img").click(()=>{
 
 function closeMenu(){
   $("#showWrapper li").velocity(
-    { bottom: -468 },
+    { bottom: -386 },
     {
       duration: 1000,
+      easing:[ 300, 20],
       complete: () => {
         $(".content li").css({ visibility: "hidden" });
       }

@@ -21,8 +21,7 @@ $.fn.extend({
       $(document).on({
         mousemove: ev => {
           var ev = ev || window.event;
-          $(this).css({ left: ev.clientX - disX });
-          $(this).css({ top: ev.clientY - disY });
+          $(this).css({ left: ev.clientX - disX ,top: ev.clientY - disY});
 
           iSpeedX = ev.clientX - prevX;
           iSpeedY = ev.clientY - prevY;
@@ -31,7 +30,7 @@ $.fn.extend({
         },
         mouseup: () => {
           $(document).off();
-          impact.call(this);
+          // impact.call(this);
         }
       });
     });
@@ -62,10 +61,10 @@ $.fn.extend({
 
         $(this).css({ left: L });
         $(this).css({ top: T });
-
+        console.log( $(document).height())
         if (
           $(this).offset.top + $(this).height() === $(document).height() &&
-          Math.abs(iSpeedY) < 2
+          Math.abs(iSpeedY) < 1
         ) {
           clearInterval(timer);
         }
