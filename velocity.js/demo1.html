@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Macondo");
+      * {
+        box-sizing: border-box;
+      }
+      *:after,
+      *:before {
+        box-sizing: inherit;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .scroller {
+        position: relative;
+        width: 80%;
+        max-width: 800px;
+        max-height: 500px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        margin: 0 auto;
+        padding: 0 1.5em 2em;
+        border: 2px solid red;
+      }
+
+      .main-title,
+      .secondary-heading {
+        color: #444;
+        text-align: center;
+        font-family: "Macondo", cursive;
+      }
+
+      .main-title {
+        font-size: 1.6em;
+        line-height: 1.1;
+        margin-top: 2em;
+      }
+
+      .scroll-link {
+        display: block;
+        text-decoration: none;
+        position: relative;
+        padding: 0.5em;
+        font-size: 1.2em;
+        transform: scale(1.1);
+        color: red;
+        text-align: center;
+        transition: transform 0.5s;
+      }
+
+      .scroll-link::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0.3em;
+        left: 0;
+        border: 1px solid transparent;
+        border-bottom: 1px solid red;
+        transition: border-width 0.7, border-color 0.5s;
+      }
+
+      .scroll-link:hover,
+      .croll-link:focus {
+        transform: scale(1);
+      }
+
+      .scroll-link:hover:after,
+      .croll-link:focus:after {
+        border-color: red;
+        border-width: 2px;
+      }
+
+      .scroll-link__icon {
+        font-size: 2em;
+      }
+
+      .separator {
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .separator__icons {
+        font-size: 1.5em;
+        color: red;
+      }
+
+      /* Media Queries */
+      @media screen and (min-width: 800px) {
+        .container {
+          max-width: 80%;
+        }
+
+        .scroll-link {
+          max-width: 50%;
+          margin: 0 auto;
+          text-wrap: nowrap;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="scroller">
+        <p>
+          <a class="scroll-link scroll-to-last" href="#last"
+            >滚动到最后一部分 <span class="scroll-link__icon">⬇</span></a
+          >
+        </p>
+
+        <h1 class="main-title" id="first">第一部分: 英雄联盟的历史</h1>
+
+        <p>
+          直到二十年前，符文之地才从战乱中解脱。这片大陆上的人民自远古以来就习惯结群而斗，用战争解决纷争。而不论何时，战争的工具始终都是魔法。
+        </p>
+        <p>
+          军队用法术和符文武装自己，英雄们打造出大部分魔法物品率领部队彼此厮杀。召唤者，瓦罗兰大陆的实际领导者们，他们疯狂使用魔法能量攻击敌人的部队和支持者。他们拥有近乎无限的原始魔法力量使用，从未考虑过无止境的滥用魔法会给这片大陆的环境带来怎么样的灾难。
+        </p>
+
+        <p>
+          然而近200年来无止境的魔法滥用让瓦罗兰的人民看到了符文之地的脆弱现状。最后两次符文之战剧烈影响了瓦罗兰的地质环境，尽管人们试图聚集魔法能量来恢复这灾难性的后果，却毫无作用。剧烈的地震和恐怖的魔法风暴让整个瓦罗兰为之颤抖，对人们来说这份恐惧远超过战争的可怖。
+        </p>
+
+        <p>
+          人们终于意识到世界已经承受不起符文之战的破坏。为了回应世界上不断恶化的政治和经济危机，瓦罗兰的大法师们——包括许多强大的召唤者——达成共识，所有的冲突必须以可控和系统化的方式来处理。
+        </p>
+
+        <p>
+          他们成立了一个叫“英雄联盟”的组织，目的在于监督瓦罗兰的政治纷争得以有序处理。位于战争学院的英雄联盟获得了瓦罗兰政治实体们的陆续授权，这个组织将管理处置所有政治纷争带来的结果，英雄联盟决定所有主要的政治争论都必须通过特别设立在瓦罗兰各地的竞技场来处理。拥有不同政见的召唤者们各自召唤一个英雄，这些英雄们则带领没有心智意识的小兵进行战斗，这些小兵由初阶召唤者通过召唤节点制造。
+        </p>
+
+        <h2 class="secondary-heading" id="last">最后一部分</h2>
+
+        <p>
+          战争学院是英雄联盟裁决瓦罗兰政治纠纷之地。这里是绝对中立的领土，严禁任何纷争。违反者将面对学院的士兵和魔法。学院坐落于一座巨型水晶枢纽之上，由黑曜石、贵金属和魔法塑形而成。它位于莫格罗恩关隘的北方入口，刚好位于相互敌对的城邦德玛西亚和诺克萨斯之间。
+        </p>
+        <p>
+          除了作为英雄联盟所在地，战争学院还是瓦罗兰最权威的军事培训机构。很多图书馆都致力于收录战争学院的英雄信息，并向所有研究者开放。
+        </p>
+        <p>
+          战争学院内部是马约里斯秘术中心，部分是魔法学校，部分是法术储藏地，还有一部分是雇佣经纪处。马约里斯秘术中心是召唤师们交易游戏金币的中心，无论新手还是大师都可以在这里花费自己从正义之地挣得的金币，换取他们感兴趣的物件。召唤师可以在此消耗金币，换取召唤新保卫者化身的能力。
+        </p>
+
+        <div class="separator"><span class="separator__icons">❖❖❖❖❖</span></div>
+
+        <p>
+          <a class="scroll-link scroll-to-first" href="#first"
+            >滚动到第一部分 <span class="scroll-link__icon">⬆</span></a
+          >
+        </p>
+      </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/velocity/1.5.1/velocity.min.js"></script>
+    <script>
+      const scrolling = (element, container, direction) => {
+        let offsetDistance = 0;
+        direction === "up" ? (offsetDistance = -200) : 200;
+        $.Velocity(element, "scroll", {
+          container: container,
+          duration: 500,
+          offset: offsetDistance,
+          easing: "ease-out"
+        });
+      };
+
+      const scrollerContainer = document.querySelector(".scroller");
+
+      const scrollToFirst = document.querySelector(".scroll-to-first");
+      const scrollToLast = document.querySelector(".scroll-to-last");
+
+      const firstSection = document.querySelector("#first");
+      const lastSection = document.querySelector("#last");
+
+      scrollToLast.addEventListener("click", e => {
+        e.preventDefault();
+        scrolling(lastSection, scrollerContainer, "down");
+      });
+
+      scrollToFirst.addEventListener("click", e => {
+        e.preventDefault();
+        scrolling(firstSection, scrollerContainer, "up");
+      });
+    </script>
+  </body>
+</html>

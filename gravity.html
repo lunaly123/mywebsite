@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>碰撞</title>
+    <style type="text/css">
+      #div1 {
+        width: 100px;
+        height: 100px;
+        background: #f00;
+        position: absolute;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="div1"></div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"
+  ></script>
+  <script type="text/javascript">
+    $.fn.extend({
+      gravity: function() {
+        let disX = 0;
+        let disY = 0;
+
+        let prevX = 0;
+        let prevY = 0;
+        let iSpeedX = 0;
+        let iSpeedY = 0;
+
+        let timer = null;
+
+        $(this).mousedown(ev => {
+          var ev = ev || window.event;
+          disX = ev.clientX - $(this).offset().left;
+          disY = ev.clientY - $(this).offset().top;
+
+          prevX = ev.clientX;
+          prevY = ev.clientY;
+
+          $(document).on({
+            mousemove: ev => {
+              var ev = ev || window.event;
+              $(this).css({ left: ev.clientX - disX });
+              $(this).css({ top: ev.clientY - disY });
+
+              iSpeedX = ev.clientX - prevX;
+              iSpeedY = ev.clientY - prevY;
+              prevX = ev.clientX;
+              prevY = ev.clientY;
+            },
+            mouseup: () => {
+              $(document).off();
+              impact.call(this);
+            }
+          });
+        });
+
+        function impact() {
+          clearInterval(timer);
+          timer = setInterval(() => {
+            iSpeedY += 3;
+            let L = $(this).offset().left + iSpeedX;
+            let T = $(this).offset().top + iSpeedY;
+
+            if (T > $(document).height() - $(this).height()) {
+              T = $(document).height() - $(this).height();
+              iSpeedY *= -0.75;
+              iSpeedX *= 0.75;
+            } else if (T < 0) {
+              T = 0;
+              iSpeedY *= -1;
+              iSpeedY *= 0.75;
+            }
+
+            if (L > $(document).width() - $(this).width()) {
+              L = $(document).width() - $(this).width();
+              iSpeedX *= -1;
+              iSpeedX *= 0.75;
+            } else if (L < 0) {
+              L = 0;
+              iSpeedX *= -1;
+              iSpeedX *= 0.75;
+            }
+
+            $(this).css({ left: L });
+            $(this).css({ top: T });
+
+            if (
+              $(this).offset.top + $(this).height() === $(document).height() &&
+              Math.abs(iSpeedY) < 2
+            ) {
+              clearInterval(timer);
+            }
+          }, 30);
+        }
+      }
+    });
+
+    $.fn.extend({
+      getMax: function() {
+        console.log($(this).height());
+      }
+    });
+
+    // $("#div1").getMax();
+    $("#div1").gravity();
+  </script>
+</html>
