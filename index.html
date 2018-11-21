@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.bootcss.com/velocity/1.5.1/velocity.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/2.2.7/echarts.js"></script>
     <script src="./js/extend.js"></script>
     <title>个人博客</title>
   </head>
@@ -24,24 +24,26 @@
         <li><img id="indexg0" src="./image/front-end-skills.png" alt="" /></li>
         <li><img id="indexg1" src="./image/g2.png" /></li>
       </ul>
-      <div id="news">
-        <div id="newscontrol">
-          <a href="#" id="newsco">
-            <img
-              src="http://www.uelike.com/template/templates/images/newsopen.png"
-              width="41"
-              height="39"
-              alt="展开"
-            />
-          </a>
-          <a href="#" id="newscc">
-            <img
-              src="http://www.uelike.com/template/templates/images/newsclose.png"
-              width="41"
-              height="39"
-              alt="关闭"
-            />
-          </a>
+      <div class="newsWrapper">
+        <div id="news">
+          <div id="newscontrol">
+            <a href="#" id="newsco">
+              <img
+                src="http://www.uelike.com/template/templates/images/newsopen.png"
+                width="41"
+                height="39"
+                alt="展开"
+              />
+            </a>
+            <a href="#" id="newscc">
+              <img
+                src="http://www.uelike.com/template/templates/images/newsclose.png"
+                width="41"
+                height="39"
+                alt="关闭"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div id="worksmc" style="top: 429px; visibility: hidden;">
@@ -161,90 +163,7 @@
                     class="jspPane"
                     style="padding: 0px; left: 0px; width: 1316px;"
                   >
-                    <div class="workslist" style="width: 3021px;">
-                      <div class="worksitem">
-                        <div class="worksimg">
-                          <div class="workimgbody">
-                            <a href="http://www.uelike.com/post/730053/">
-                              <img
-                                src="http://cdn.uedna.com/201809/1536558993169_280x180.jpg"
-                                alt="东枫德必WE"
-                                width="233"
-                                height="150"
-                              />
-                            </a>
-                            <div class="workimgtxt">
-                              <span>READ MORE</span
-                              ><span class="witnum">.00</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="workstxt">
-                          <a href="http://www.uelike.com/post/730053/"
-                            >东枫德必WE</a
-                          >
-                          <p>
-                            Date:2018-09-10 <br /><span
-                              >所属行业：<a
-                                href="http://www.uelike.com/list/fid/25/"
-                                >专题活动</a
-                              ></span
-                            >
-                          </p>
-                        </div>
-                        <div class="wizoom">
-                          <a href="http://www.uelike.com/post/730053/">
-                            <img
-                              src="http://www.uelike.com/template/templates/images/wizoom.png"
-                              alt="查看详情"
-                              width="43"
-                              height="47"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div class="worksitem">
-                        <div class="worksimg">
-                          <div class="workimgbody">
-                            <a href="http://www.uelike.com/post/730053/">
-                              <img
-                                src="http://cdn.uedna.com/201809/1536558993169_280x180.jpg"
-                                alt="东枫德必WE"
-                                width="233"
-                                height="150"
-                              />
-                            </a>
-                            <div class="workimgtxt">
-                              <span>READ MORE</span
-                              ><span class="witnum">.00</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="workstxt">
-                          <a href="http://www.uelike.com/post/730053/"
-                            >东枫德必WE</a
-                          >
-                          <p>
-                            Date:2018-09-10 <br /><span
-                              >所属行业：<a
-                                href="http://www.uelike.com/list/fid/25/"
-                                >专题活动</a
-                              ></span
-                            >
-                          </p>
-                        </div>
-                        <div class="wizoom">
-                          <a href="http://www.uelike.com/post/730053/">
-                            <img
-                              src="http://www.uelike.com/template/templates/images/wizoom.png"
-                              alt="查看详情"
-                              width="43"
-                              height="47"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    <div class="workslist"></div>
                   </div>
                 </div>
               </div>
@@ -274,16 +193,10 @@
         <li>
           <div id="worksmc">
             <div id="workscontent">
-              <div
-                id="worksbody"
-                class="jspScrollable"
-              >
+              <div id="worksbody" class="jspScrollable">
                 <div class="jspContainer">
-                  <div class="jspPane">
-                  </div>
-                  <ul id="echartsWrapper">
-                    <li id="ehtml"></li>
-                  </ul>
+                  <div class="jspPane"></div>
+                  <div id="echartsWrapper"></div>
                 </div>
               </div>
             </div>
@@ -323,90 +236,7 @@
                     class="jspPane"
                     style="padding: 0px; left: 0px; width: 1316px;"
                   >
-                    <div class="workslist" style="width: 3021px;">
-                      <div class="worksitem">
-                        <div class="worksimg">
-                          <div class="workimgbody">
-                            <a href="http://www.uelike.com/post/730053/">
-                              <img
-                                src="http://cdn.uedna.com/201809/1536558993169_280x180.jpg"
-                                alt="东枫德必WE"
-                                width="233"
-                                height="150"
-                              />
-                            </a>
-                            <div class="workimgtxt">
-                              <span>READ MORE</span
-                              ><span class="witnum">.00</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="workstxt">
-                          <a href="http://www.uelike.com/post/730053/"
-                            >东枫德必WE</a
-                          >
-                          <p>
-                            Date:2018-09-10 <br /><span
-                              >所属行业：<a
-                                href="http://www.uelike.com/list/fid/25/"
-                                >专题活动</a
-                              ></span
-                            >
-                          </p>
-                        </div>
-                        <div class="wizoom">
-                          <a href="http://www.uelike.com/post/730053/">
-                            <img
-                              src="http://www.uelike.com/template/templates/images/wizoom.png"
-                              alt="查看详情"
-                              width="43"
-                              height="47"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div class="worksitem">
-                        <div class="worksimg">
-                          <div class="workimgbody">
-                            <a href="http://www.uelike.com/post/730053/">
-                              <img
-                                src="http://cdn.uedna.com/201809/1536558993169_280x180.jpg"
-                                alt="东枫德必WE"
-                                width="233"
-                                height="150"
-                              />
-                            </a>
-                            <div class="workimgtxt">
-                              <span>READ MORE</span
-                              ><span class="witnum">.00</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="workstxt">
-                          <a href="http://www.uelike.com/post/730053/"
-                            >东枫德必WE</a
-                          >
-                          <p>
-                            Date:2018-09-10 <br /><span
-                              >所属行业：<a
-                                href="http://www.uelike.com/list/fid/25/"
-                                >专题活动</a
-                              ></span
-                            >
-                          </p>
-                        </div>
-                        <div class="wizoom">
-                          <a href="http://www.uelike.com/post/730053/">
-                            <img
-                              src="http://www.uelike.com/template/templates/images/wizoom.png"
-                              alt="查看详情"
-                              width="43"
-                              height="47"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    <div class="workslist"></div>
                   </div>
                 </div>
               </div>
@@ -447,90 +277,7 @@
                     class="jspPane"
                     style="padding: 0px; left: 0px; width: 1316px;"
                   >
-                    <div class="workslist" style="width: 3021px;">
-                      <div class="worksitem">
-                        <div class="worksimg">
-                          <div class="workimgbody">
-                            <a href="http://www.uelike.com/post/730053/">
-                              <img
-                                src="http://cdn.uedna.com/201809/1536558993169_280x180.jpg"
-                                alt="东枫德必WE"
-                                width="233"
-                                height="150"
-                              />
-                            </a>
-                            <div class="workimgtxt">
-                              <span>READ MORE</span
-                              ><span class="witnum">.00</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="workstxt">
-                          <a href="http://www.uelike.com/post/730053/"
-                            >东枫德必WE</a
-                          >
-                          <p>
-                            Date:2018-09-10 <br /><span
-                              >所属行业：<a
-                                href="http://www.uelike.com/list/fid/25/"
-                                >专题活动</a
-                              ></span
-                            >
-                          </p>
-                        </div>
-                        <div class="wizoom">
-                          <a href="http://www.uelike.com/post/730053/">
-                            <img
-                              src="http://www.uelike.com/template/templates/images/wizoom.png"
-                              alt="查看详情"
-                              width="43"
-                              height="47"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div class="worksitem">
-                        <div class="worksimg">
-                          <div class="workimgbody">
-                            <a href="http://www.uelike.com/post/730053/">
-                              <img
-                                src="http://cdn.uedna.com/201809/1536558993169_280x180.jpg"
-                                alt="东枫德必WE"
-                                width="233"
-                                height="150"
-                              />
-                            </a>
-                            <div class="workimgtxt">
-                              <span>READ MORE</span
-                              ><span class="witnum">.00</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="workstxt">
-                          <a href="http://www.uelike.com/post/730053/"
-                            >东枫德必WE</a
-                          >
-                          <p>
-                            Date:2018-09-10 <br /><span
-                              >所属行业：<a
-                                href="http://www.uelike.com/list/fid/25/"
-                                >专题活动</a
-                              ></span
-                            >
-                          </p>
-                        </div>
-                        <div class="wizoom">
-                          <a href="http://www.uelike.com/post/730053/">
-                            <img
-                              src="http://www.uelike.com/template/templates/images/wizoom.png"
-                              alt="查看详情"
-                              width="43"
-                              height="47"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    <div class="workslist"></div>
                   </div>
                 </div>
               </div>

@@ -1,10 +1,20 @@
+var down = null;
+var mouse = false;
+
 $("#newscontrol").click(() => {
+  clearTimeout(down);
+  if (!mouse) {
+    console.log("被点击了");
+  } else {
+    mouse = false;
+  }
+  let _boolen = false;
   if (!$("#news").hasClass("show")) {
+    _boolen = !_boolen;
     $("#news").velocity(
       {
-        translateY: "80px",
-        left: "50%",
-        translateX: "-50%",
+        top: "150px",
+        left: "38%",
         height: "719px"
       },
       {
@@ -12,20 +22,26 @@ $("#newscontrol").click(() => {
         duration: 1000,
         complete: () => {
           $("#news").addClass("show");
-          $("#news").gravity();
         }
       }
     );
   } else {
-    $("#news").velocity("reverse", {
-      duration: 1000,
-      complete: () => {
-        $("#news").removeClass("show");
+    $("#news").velocity(
+      {
+        top: "80px",
+        left: "75%",
+        height: "67px"
+      },
+      {
+        duration: 1000,
+        complete: () => {
+          $("#news").removeClass("show");
+        }
       }
-    });
+    );
   }
 });
-$('#pengzhuang').gravity();
+
 $(document).on("mousemove", ev => {
   let x = $("#indexgs").width() / 2;
   let y = $("#indexgs").height() / 2;
@@ -45,82 +61,32 @@ $(document).on("mousemove", ev => {
 
 $("#nav ul li:lt(5)").hover(
   function() {
-    $("#navmove").css({ 'left': $(this).width() * $(this).index() });
+    $("#navmove").css({ left: $(this).width() * $(this).index() });
   },
   function() {
     var navs = $("#nav ul li:lt(5)");
     for (var i = 0; i < navs.length; i++) {
       if (navs[i].classList.contains("navative")) {
-        $("#navmove").css({ 'left': $(this).width() * i });
-      } 
+        $("#navmove").css({ left: $(this).width() * i });
+      }
     }
   }
 );
-$("#nav ul li:eq(0)").click(()=>{
+
+$("#nav ul li:eq(0)").click(() => {
   closeMenu();
-})
-$("#nav ul li:gt(0)").click(function() {
-  $("#nav ul li").removeClass("navative");
-  $(this).toggleClass("navative");
-  let index = $(this).index() - 1;
-
-  $("#showWrapper li").each(function () {
-    if($(this).hasClass('show')){
-      $(this).removeClass('show');
-      $(this).velocity(
-        { bottom: -386 },
-        {
-          duration: 1000,
-          easing:[ 300, 20],
-          complete: () => {
-            $(".content li").css({ visibility: "hidden" });
-          }
-        }
-      );
-    }
-  })
-
-  $("#showWrapper li").eq(index).addClass('show');
-  $("#showWrapper li")
-    .eq(index)
-    .css({ visibility: "visible" });
-  $("#showWrapper li")
-    .eq(index)
-    .velocity(
-      { bottom: 386 },
-      {
-        duration: 1000,
-        easing:[ 300, 20],
-      }
-    );
-  $("#news").velocity(
-    {
-      right: "-30%"
-    },
-    {
-      duration: 1000
-    }
-  );
-  $("#workslatest").velocity(
-    {
-      right: "-30%"
-    },
-    {
-      duration: 1000
-    }
-  );
 });
 
-$("#workclose img").click(()=>{
+$("#workclose img").click(() => {
   closeMenu();
-})
+});
 
-function closeMenu(){
+function closeMenu() {
   $("#showWrapper li").velocity(
     { bottom: -386 },
     {
       duration: 1000,
-      easing:[ 300, 20],
+      easing: [300, 20],
       complete: () => {
         $(".content li").css({ visibility: "hidden" });
       }
@@ -146,7 +112,7 @@ function closeMenu(){
       delay: 500
     }
   );
-  $("#navmove").css({ 'left': 0 });
+  $("#navmove").css({ left: 0 });
 }
 $("#worklc a img").hover(
   function() {
@@ -170,6 +136,7 @@ $("#worklbc ul li").hover(
 
 $(function() {
   //页面加载完成后立即执行的内容
+  Draggable($("#news"),true)
   $("#news").velocity(
     {
       right: "2%"
