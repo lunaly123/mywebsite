@@ -18,7 +18,7 @@ $("#nav ul li:gt(0)").click(function() {
       );
     }
   });
-  if (index === 1) {
+  if (index === 2) {
     $("#showWrapper li")
       .eq(index)
       .addClass("show");

@@ -15,7 +15,7 @@ $("#newscontrol").click(() => {
       {
         top: "150px",
         left: "38%",
-        height: "719px"
+        height: "500px"
       },
       {
         easing: [0.58, -0.25, 0.43, 1.24],
@@ -190,3 +190,7 @@ $(function() {
     $("#worklc a img:eq(1)")
   );
 });
+
+document.body.onselectstart = function () { 
+  return false; 
+};

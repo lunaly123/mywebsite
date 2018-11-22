@@ -49,12 +49,12 @@ body {
   height: 100%;
   position: static;
   float: left;
-  visibility:visible;
+  visibility: visible;
   bottom: 0;
 }
-.jspPane {
+/* .jspPane {
   position: absolute;
-}
+} */
 .jspVerticalBar {
   position: absolute;
   top: 0;
@@ -235,7 +235,6 @@ body {
 #news {
   background: url("../image/newsbg.png") no-repeat;
   width: 455px;
-  height: 719px;
   position: absolute;
   top: 80px;
   right: -1000px;
@@ -346,7 +345,7 @@ body {
   display: block;
   background: url(../images/startdrag.png);
 }
-#showWrapper li{
+#showWrapper li {
   width: 100%;
   height: 500px;
   position: absolute;
@@ -365,7 +364,7 @@ body {
 .workslist .worksitem {
   width: 238px;
   height: 264px;
-  float: left;
+  /* float: left; */
   margin-right: 15px;
   position: relative;
   overflow: hidden;
@@ -1020,4 +1019,46 @@ a.pageclose img {
   margin-left: 30px;
   color: #fff;
   line-height: 29px;
+}
+.workshow {
+  display: flex;
+  justify-content: space-around;
+}
+.workshow div {
+  width: 300px;
+  height: 305px;
+  background: #1f8902;
+}
+.evaluation {
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 25px;
+  color: #373737;
+}
+.evaluation p {
+  margin: 20px 0;
+}
+.tel {
+  display: flex;
+  justify-content: space-around;
+}
+.tel .left,
+.tel .right {
+  width: 800px;
+  height: 305px;
+  font-size: 25px;
+  color: #373737;
+}
+.tel p {
+  margin: 10px 0 10px 80px;
+}
+.newscontent {
+  width: 400px;
+  height: 400px;
+  margin: 100px auto;
+}
+.newscontent p {
+  font-size: 18px;
+  color: #737373;
+  margin: 50px 10px;
 }
