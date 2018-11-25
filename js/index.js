@@ -1,6 +1,15 @@
 var down = null;
 var mouse = false;
 
+$("#news").click(() => {
+  clearTimeout(down);
+  if (!mouse) {
+    console.log("被点击了");
+  } else {
+    mouse = false;
+  }
+});
+
 $("#newscontrol").click(() => {
   clearTimeout(down);
   if (!mouse) {
@@ -57,6 +66,16 @@ $(document).on("mousemove", ev => {
       mouseY) /
       15}px)`
   });
+  $("#indexgs li:eq(3)").css({
+    transform: `translateX(${-((x - mouseX) / 18)}px) translateY(${(y -
+      mouseY) /
+      13}px)`
+  });
+  $("#indexgs li:eq(4)").css({
+    transform: `translateX(${-((x - mouseX) / 35)}px) translateY(${(y -
+      mouseY) /
+      17}px)`
+  });
 });
 
 $("#nav ul li:lt(5)").hover(
@@ -88,13 +107,15 @@ function closeMenu() {
       duration: 1000,
       easing: [300, 20],
       complete: () => {
-        $(".content li").css({ visibility: "hidden" });
+        $(".content li").css({ 'visibility': "hidden" });
       }
     }
   );
+  $("#news").css({ 'visibility': "visible" })
+  $("#news").removeClass("show");
   $("#news").velocity(
     {
-      right: "2%"
+      left: "75%",
     },
     {
       easing: [0.175, 0.885, 0.32, 1.275],
@@ -133,19 +154,68 @@ $("#worklbc ul li").hover(
     $(".wizoom").css({ top: -52 });
   }
 );
+let x = 1,
+  y=0,
+  z=0
+
+$('.cube-wrapper .cube').hover(
+  function(ev) {
+    let x = 0;
+    let y = 0;
+    let a = '90deg';
+    let cube = {
+      left : $(this).offset().left,
+      right : $(this).offset().left + $(this).width(),
+      top : $(this).offset().top,
+      bottom:  $(this).offset().top + $(this).height()
+    }
+
+    let mouseP = {
+      x : ev.clientX,
+      y : ev.clientY
+    }
+
+    if (Math.abs(mouseP.x - cube.left)<20) {
+      y = 1
+    } else if(Math.abs(mouseP.x - cube.right)<20) {
+      y = 1
+      a = '-90deg'
+    } else if(Math.abs(mouseP.y - cube.top)<20) {
+      x = 1
+      a = '-90deg'
+    } else if(Math.abs(mouseP.y - cube.bottom)<20) {
+      x = 1
+    }
+
+    $(this).css({'transform':`rotate3d(${x},${y},0,${a})`})
+  },
+  function() {
+    $('.cube-wrapper .cube').css({'transform':'rotate3d(0,0,0,0deg)'})
+  }
+)
+
+
+
 
 $(function() {
   //页面加载完成后立即执行的内容
-  Draggable($("#news"),true)
-  $("#news").velocity(
-    {
-      right: "2%"
-    },
-    {
-      easing: [0.175, 0.885, 0.32, 1.275],
-      duration: 1000
-    }
-  );
+  $("#news")
+    .velocity(
+      {
+        top: "150px",
+        left: "38%",
+        height: "500px"
+      },
+      {
+        easing: [0.19, 1, 0.22, 1],
+        duration: 1000,
+        complete: () => {
+          $("#news").addClass("show");
+          gravity(-60, 60, $("#news"))
+          Draggable($("#news"))
+        }
+      }
+    );
 
   $("#indexg0").velocity(
     {
@@ -181,6 +251,26 @@ $(function() {
       duration: 1000
     }
   );
+  $("#indexg3").velocity(
+    {
+      top: "-80px",
+      left: "-30px"
+    },
+    {
+      easing: [0.65, 0.01, 0.54, 1.19],
+      duration: 1000
+    }
+  );
+  $("#indexg4").velocity(
+    {
+      top: "65px",
+      left: "16px"
+    },
+    {
+      easing: [0.65, 0.01, 0.54, 1.19],
+      duration: 1000
+    }
+  );
 
   silder(
     3,
@@ -191,6 +281,6 @@ $(function() {
   );
 });
 
-document.body.onselectstart = function () { 
-  return false; 
+document.body.onselectstart = function() {
+  return false;
 };

@@ -2,7 +2,7 @@ $("#nav ul li:gt(0)").click(function() {
   $("#nav ul li").removeClass("navative");
   $(this).toggleClass("navative");
   let index = $(this).index() - 1;
-  console.log($("#showWrapper li").eq(index));
+  // console.log($("#showWrapper li").eq(index));
   $("#showWrapper li").each(function() {
     if ($(this).hasClass("show")) {
       $(this).removeClass("show");
@@ -18,7 +18,7 @@ $("#nav ul li:gt(0)").click(function() {
       );
     }
   });
-  if (index === 2) {
+  if (index === 1) {
     $("#showWrapper li")
       .eq(index)
       .addClass("show");
@@ -55,14 +55,7 @@ $("#nav ul li:gt(0)").click(function() {
       );
   }
 
-  $("#news").velocity(
-    {
-      right: "-30%"
-    },
-    {
-      duration: 1000
-    }
-  );
+  $("#news").css({'visibility':'hidden','top':'80px','left':'200%','height':'67px'})
   $("#workslatest").velocity(
     {
       right: "-30%"
@@ -152,7 +145,7 @@ function echarts() {
       series: [
         {
           type: "pie",
-          center: ["10%", "50%"],
+          center: ["10%", "30%"],
           radius: radius,
           itemStyle: labelFromatter,
           data: [
@@ -162,7 +155,7 @@ function echarts() {
         },
         {
           type: "pie",
-          center: ["25%", "50%"],
+          center: ["25%", "60%"],
           radius: radius,
           itemStyle: labelFromatter,
           data: [
@@ -172,7 +165,7 @@ function echarts() {
         },
         {
           type: "pie",
-          center: ["40%", "50%"],
+          center: ["40%", "30%"],
           radius: radius,
           itemStyle: labelFromatter,
           data: [
@@ -182,7 +175,7 @@ function echarts() {
         },
         {
           type: "pie",
-          center: ["55%", "50%"],
+          center: ["55%", "60%"],
           radius: radius,
           itemStyle: labelFromatter,
           data: [
@@ -192,7 +185,7 @@ function echarts() {
         },
         {
           type: "pie",
-          center: ["70%", "50%"],
+          center: ["70%", "30%"],
           radius: radius,
           itemStyle: labelFromatter,
           data: [
@@ -202,7 +195,7 @@ function echarts() {
         },
         {
           type: "pie",
-          center: ["85%", "50%"],
+          center: ["85%", "60%"],
           radius: radius,
           itemStyle: labelFromatter,
           data: [
