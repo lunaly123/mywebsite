@@ -44,13 +44,19 @@ body {
   overflow: hidden;
   position: relative;
 }
-.jspContainer #echartsWrapper {
+.jspContainer #echarts-wrapper {
   width: 100%;
   height: 100%;
   position: static;
-  float: left;
-  visibility: visible;
-  bottom: 0;
+  /* float: left; */
+  /* visibility: visible; */
+  /* bottom: 0; */
+  display: flex;
+  justify-content: space-around;
+}
+#echarts-wrapper .echart-item {
+  width: 240px;
+  height: 305px;
 }
 /* .jspPane {
   position: absolute;
@@ -365,6 +371,9 @@ body {
   position: absolute;
   bottom: -468px;
   visibility: hidden;
+}
+#showWrapper li:nth-child(2) #worksbody {
+  background: #f2f2e6;
 }
 #workscontent {
   padding: 30px 20px 0 20px;
@@ -1039,55 +1048,71 @@ a.pageclose img {
   justify-content: space-around;
 }
 .workshow .item {
-  width: 280px;
-  height: 305px;
+  width: 232px;
+  height: 330px;
+  margin: auto;
+  position: relative;
+}
+.workshow .item .project {
+  background: url('../image/works-count-top.png') no-repeat;
+  width: 232px;
+  height: 224px;
 }
 .workshow .item .text {
   text-align: center;
-  margin: 10px auto;
-  font-size: 20px;
+  font-size: 12px;
   color: #373737;
+  background: url('../image/works-count-bottom.png') no-repeat;
+  width: 232px;
+  height: 110px;
+}
+.workshow .item .text span {
+  display: inline-block;
+  margin-top: 16px;
 }
 .cube-wrapper {
   perspective: 1000px;
   perspective-origin: 50% 100px;
   overflow: hidden;
+  width: 170px;
+  height: 170px;
+  position: relative;
+  top: 43px;
+  left: 30px;
 }
 .cube-wrapper .cube {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
   transform-style: preserve-3d;
-  margin: 20px auto;
   transition: transform .5s linear;
   transform: rotateY(0deg) rotateX(0deg);
   cursor: pointer;
 }
-.cube div {
+.cube img {
   position: absolute;
-  width: 200px;
-  height: 200px;
-  background: url('../image/javascript.png') no-repeat;
-  background-size: 200px;
+  width: 170px;
+  height: 170px;
+  background-size: 170px;
   font-size: 40px;
 }
 .back {
-  transform: rotate3d(0 ,0 ,0, 0deg) translateZ(-100px);
+  transform: rotate3d(0 ,0 ,0, 0deg) translateZ(-85px);
 }
 .right {
-  transform: rotate3d(0 ,1 ,0, -90deg) translateZ(-100px);
+  transform: rotate3d(0 ,1 ,0, 90deg) translateZ(85px);
 }
 .left {
-  transform: rotate3d(0 ,1 ,0, 90deg) translateZ(-100px);
+  transform: rotate3d(0 ,1 ,0, -90deg) translateZ(85px);
 }
 .top {
-  transform: rotate3d(1 ,0 ,0, -90deg) translateZ(-100px);
+  transform: rotate3d(1 ,0 ,0, 90deg) translateZ(85px);
 }
 .bottom {
-  transform: rotate3d(1 ,0 ,0, 90deg) translateZ(-100px);
+  transform: rotate3d(1 ,0 ,0, -90deg) translateZ(85px);
 }
 .front {
-  transform: translateZ(100px);
+  transform: translateZ(85px);
 }
 .evaluation {
   width: 1000px;

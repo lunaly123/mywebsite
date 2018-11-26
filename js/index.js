@@ -133,7 +133,8 @@ function closeMenu() {
       delay: 500
     }
   );
-  $("#navmove").css({ left: 0 });
+  $("#nav ul li").removeClass("navative");
+  $("#navmove").css({ 'left': '0' });
 }
 $("#worklc a img").hover(
   function() {
@@ -158,7 +159,7 @@ let x = 1,
   y=0,
   z=0
 
-$('.cube-wrapper .cube').hover(
+$('.cube-wrapper .cube').hover(//3d转换
   function(ev) {
     let x = 0;
     let y = 0;
@@ -273,7 +274,7 @@ $(function() {
   );
 
   silder(
-    3,
+    4,
     $("#worklbc ul li:eq(1)"),
     $("#worklbc ul"),
     $("#worklc a img:eq(0)"),
