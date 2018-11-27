@@ -1,4 +1,4 @@
-function Draggable(el) {
+function Draggable(el,bl) {
   let disX = 0;
   let disY = 0;
   let prevX = 0;
@@ -41,6 +41,7 @@ function Draggable(el) {
     $(document).off("mousemove", mouseMove);
     $(document).off("mouseup", mouseUp);
     console.log("执行");
+    if(!bl) return;
     gravity(elX, elY, _this);
   }
 }

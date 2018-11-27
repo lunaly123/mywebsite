@@ -31,6 +31,7 @@ $("#newscontrol").click(() => {
         duration: 1000,
         complete: () => {
           $("#news").addClass("show");
+          Draggable($("#news"),true)
         }
       }
     );
@@ -45,6 +46,7 @@ $("#newscontrol").click(() => {
         duration: 1000,
         complete: () => {
           $("#news").removeClass("show");
+          Draggable($("#news"),false)
         }
       }
     );
@@ -213,7 +215,7 @@ $(function() {
         complete: () => {
           $("#news").addClass("show");
           gravity(-60, 60, $("#news"))
-          Draggable($("#news"))
+          Draggable($("#news"),false)
         }
       }
     );
