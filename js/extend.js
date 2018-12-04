@@ -1,4 +1,4 @@
-function Draggable(el,bl) {
+function Draggable(el, bl) {
   let disX = 0;
   let disY = 0;
   let prevX = 0;
@@ -6,13 +6,13 @@ function Draggable(el,bl) {
   let elX = 0;
   let elY = 0;
   let _this = el;
-  
+
   _this.mousedown(function(ev) {
     clearTimeout(down);
     down = setTimeout(function() {
       mouse = true;
       console.log("鼠标按下了");
-      mouseDown(ev)
+      mouseDown(ev);
     }, 200);
   });
   function mouseDown(ev) {
@@ -41,14 +41,14 @@ function Draggable(el,bl) {
     $(document).off("mousemove", mouseMove);
     $(document).off("mouseup", mouseUp);
     console.log("执行");
-    if(!bl) return;
-    gravity(elX, elY, _this);
+    gravity(elX, elY, _this,bl);
   }
 }
 
-function gravity(elX, elY, _this) {
+function gravity(elX, elY, _this,bl) {
   let timer = null;
   clearInterval(timer);
+  if (!bl) return;
   timer = setInterval(() => {
     elY += 3;
     let L = _this.offset().left + elX;
@@ -152,5 +152,42 @@ function silder(num, imgWidth, silderWrapper, prevBtn, nextBtn) {
         );
       }
     }
+  }
+}
+class Typewriter {
+  constructor(el, msg) {
+    this.el = el;
+    this.msg = msg;
+    this.timer = null;
+    this.n = 0;
+    this.v = 150;
+    this.typewriter();
+  }
+  typewriter() {
+    this.el.html(this.msg.substr(0, this.n));
+    if (this.n === this.msg.length) {
+      this.n = 0;
+      clearTimeout(this.timer);
+    } else {
+      this.n++;
+      this.timer = setTimeout(() => {
+        this.typewriter(this.el, this.msg);
+      }, this.v);
+    }
+  }
+}
+let timer = null;
+let n = 0;
+function typewriter(el, msg) {
+  el.html(msg.substr(0, n));
+  if (n === msg.length) {
+    n = 0;
+    clearTimeout(timer);
+  } else {
+    n++;
+    console.log(n);
+    timer = setTimeout(() => {
+      typewriter(el, msg);
+    }, 150);
   }
 }

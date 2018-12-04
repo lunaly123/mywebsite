@@ -18,53 +18,76 @@ $("#nav ul li:gt(0)").click(function() {
       );
     }
   });
-  if (index === 1) {
-    $("#showWrapper li")
-      .eq(index)
-      .addClass("show");
-    $("#showWrapper li")
-      .eq(index)
-      .css({ visibility: "visible" });
-    $("#showWrapper li")
-      .eq(index)
-      .velocity(
-        { bottom: 386 },
-        {
-          duration: 1000,
-          easing: [300, 20],
-          complete: () => {
+
+  $("#showWrapper li")
+    .eq(index)
+    .addClass("show");
+  $("#showWrapper li")
+    .eq(index)
+    .css({ visibility: "visible" });
+  $("#showWrapper li")
+    .eq(index)
+    .velocity(
+      { bottom: 386 },
+      {
+        duration: 1000,
+        easing: [300, 20],
+        complete: () => {
+          if (index === 1 && $("#echarts-wrapper .echart1").html() === "") {
             for (let i = 0; i < 6; i++) {
               setTimeout(() => {
-                echarts(`.echart${i+1}`,i);
+                echarts(`.echart${i + 1}`, i);
               }, i * 500);
+            }
+          } else if (index === 2 && $(".evaluation p:eq(0)").html() === "") {
+            for (let i = 0; i < textList.length; i++) {
+              let delay = textList.slice(0, i).reduce((acc, cur) => {
+                return acc + cur.length;
+              }, 0);
+
+              setTimeout(() => {
+                new Typewriter($(`.evaluation p:eq(${i})`), textList[i]);
+              }, delay * 150);
+            }
+          } else if (index === 3 && $(".tel .left-tel p:eq(0)").html() === "") {
+            for (let i = 0; i < intrLeftList.length; i++) {
+              let delay = intrLeftList.slice(0, i).reduce((acc, cur) => {
+                return acc + cur.length;
+              }, 0);
+
+              setTimeout(() => {
+                new Typewriter($(`.tel .left-tel p:eq(${i})`), intrLeftList[i]);
+              }, delay * 150);
+            }
+
+            let delayL = intrLeftList.reduce((acc, cur) => {
+              return acc + cur.length;
+            }, 0);
+
+            for (let i = 0; i < intrRightList.length; i++) {
+              let delay = intrRightList.slice(0, i).reduce((acc, cur) => {
+                return acc + cur.length;
+              }, 0);
+
+              setTimeout(() => {
+                new Typewriter(
+                  $(`.tel .right-tel p:eq(${i})`),
+                  intrRightList[i]
+                );
+              }, (delay + delayL) * 150);
             }
           }
         }
-      );
-  } else {
-    $("#showWrapper li")
-      .eq(index)
-      .addClass("show");
-    $("#showWrapper li")
-      .eq(index)
-      .css({ visibility: "visible" });
-    $("#showWrapper li")
-      .eq(index)
-      .velocity(
-        { bottom: 386 },
-        {
-          duration: 1000,
-          easing: [300, 20]
-        }
-      );
-  }
-
+      }
+    );
+  gravity(0, 0, $("#news"),false);
   $("#news").css({
     visibility: "hidden",
     top: "80px",
     left: "200%",
     height: "67px"
   });
+  
   $("#workslatest").velocity(
     {
       right: "-30%"
@@ -100,7 +123,7 @@ function labelTops(i) {
         formatter: "{b}",
         textStyle: {
           baseline: "bottom",
-          color:colorList[i]
+          color: colorList[i]
         }
       },
       labelLine: {
