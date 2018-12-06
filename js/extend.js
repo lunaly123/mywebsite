@@ -13,7 +13,7 @@ function Draggable(el, bl) {
       mouse = true;
       console.log("鼠标按下了");
       mouseDown(ev);
-    }, 200);
+    }, 150);
   });
   function mouseDown(ev) {
     var ev = ev || window.event;
@@ -75,7 +75,7 @@ function gravity(elX, elY, _this,bl) {
     _this.css({ top: T });
     if (
       _this.offset().top + _this.height() === $(document).height() &&
-      Math.abs(elY) < 2
+      Math.abs(elY) < 2 || !bl
     ) {
       clearInterval(timer);
     }

@@ -22,16 +22,16 @@ $("#newscontrol").click(() => {
     _boolen = !_boolen;
     $("#news").velocity(
       {
-        top: "150px",
+        top: `${$(window).height() - 500}px`,
         left: "38%",
         height: "500px"
       },
       {
-        easing: [0.58, -0.25, 0.43, 1.24],
-        duration: 1000,
+        easing: 'linear',
+        duration: 500,
         complete: () => {
           $("#news").addClass("show");
-          gravity(-60, 60, $("#news"),true);
+          gravity(-40, 70, $("#news"), true);
           Draggable($("#news"), true);
         }
       }
@@ -65,8 +65,7 @@ $(document).on("mousemove", ev => {
       10}px)`
   });
   $("#indexgs li:eq(1)").css({
-    transform: `translateX(${-((x - mouseX) / 30)}px) translateY(${(y -
-      mouseY) /
+    transform: `translateX(${(x - mouseX) / 30}px) translateY(${(y - mouseY) /
       15}px)`
   });
   $("#indexgs li:eq(2)").css({
@@ -88,8 +87,11 @@ $("#nav ul li:lt(5)").hover(
   function() {
     var navs = $("#nav ul li:lt(5)");
     for (var i = 0; i < navs.length; i++) {
+      console.log(navs[i].classList.contains("navative"));
       if (navs[i].classList.contains("navative")) {
         $("#navmove").css({ left: $(this).width() * i });
+      } else {
+        $("#navmove").css({ left: 0 });
       }
     }
   }
@@ -214,7 +216,7 @@ let intrLeftList = [
   "年龄：27",
   "民族：汉",
   "邮箱：dbpangzi@gmail.com",
-  "移动电话：18513355645",
+  "移动电话：18513355645"
 ];
 let intrRightList = [
   "教育经历",
@@ -223,23 +225,21 @@ let intrRightList = [
   "2014.6 – 2018.3 北京建工土木工程有限公司机电安装与网络维护"
 ];
 
-
-
 $(function() {
   // 页面加载完成后立即执行的内容
   $("#news").velocity(
     {
-      top: "150px",
+      top: `${$(window).height() - 500}px`,
       left: "38%",
       height: "500px"
     },
     {
-      easing: [0.19, 1, 0.22, 1],
-      duration: 1000,
-      delay:1000,
+      easing: 'linear',
+      duration: 500,
+      delay: 1000,
       complete: () => {
         $("#news").addClass("show");
-        gravity(-60, 60, $("#news"),true);
+        gravity(-50, 50, $("#news"), true);
         Draggable($("#news"), true);
       }
     }
