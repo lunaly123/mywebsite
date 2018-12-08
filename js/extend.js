@@ -46,10 +46,10 @@ function Draggable(el, bl) {
 }
 
 function gravity(elX, elY, _this,bl) {
-  let timer = null;
-  clearInterval(timer);
+  window.Gtimer = null;
+  clearInterval(window.Gtimer);
   if (!bl) return;
-  timer = setInterval(() => {
+  window.Gtimer = setInterval(() => {
     elY += 3;
     let L = _this.offset().left + elX;
     let T = _this.offset().top + elY;
@@ -75,9 +75,9 @@ function gravity(elX, elY, _this,bl) {
     _this.css({ top: T });
     if (
       _this.offset().top + _this.height() === $(document).height() &&
-      Math.abs(elY) < 2 || !bl
+      Math.abs(elY) < 2
     ) {
-      clearInterval(timer);
+      clearInterval(window.Gtimer);
     }
   }, 30);
 }
@@ -160,7 +160,7 @@ class Typewriter {
     this.msg = msg;
     this.timer = null;
     this.n = 0;
-    this.v = 150;
+    this.v = 80;
     this.typewriter();
   }
   typewriter() {
