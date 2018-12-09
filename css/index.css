@@ -320,10 +320,11 @@ body {
   background: url("../image/newsbg.png") no-repeat;
   width: 455px;
   position: absolute;
-  top: 80px;
-  right: -1000px;
+  top: 20%;
+  left: 35%;
   height: 67px;
   overflow: hidden;
+  opacity: 0;
   z-index: 100;
   cursor: move;
 }

@@ -32,11 +32,11 @@ $('#newscontrol').click(() => {
         complete: () => {
           $('#news').addClass('show')
           gravity(-40, 70, $('#news'), true)
-          Draggable($('#news'), true)
         }
       }
     )
   } else {
+    clearInterval(window.Gtimer)
     $('#news').velocity(
       {
         top: '80px',
@@ -47,7 +47,6 @@ $('#newscontrol').click(() => {
         duration: 1000,
         complete: () => {
           $('#news').removeClass('show')
-          Draggable($('#news'), false)
         }
       }
     )
@@ -223,10 +222,10 @@ let intrRightList = [
 
 $(window).on('load', function() {
   // 页面加载完成后立即执行的内容
+  Draggable($("#news"), true);
   $("#news").velocity(
     {
-      top: `${$(window).height() - 500}px`,
-      left: "38%",
+      opacity: 1,
       height: "500px"
     },
     {
@@ -235,8 +234,7 @@ $(window).on('load', function() {
       delay: 1000,
       complete: () => {
         $("#news").addClass("show");
-        gravity(-50, 50, $("#news"), true);
-        Draggable($("#news"), true);
+        gravity(0, 50, $("#news"), true);
       }
     }
   );

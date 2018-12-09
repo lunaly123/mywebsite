@@ -1,4 +1,4 @@
-function Draggable(el, bl) {
+function Draggable(el,bl) {
   let disX = 0;
   let disY = 0;
   let prevX = 0;
@@ -41,12 +41,18 @@ function Draggable(el, bl) {
     $(document).off("mousemove", mouseMove);
     $(document).off("mouseup", mouseUp);
     console.log("执行");
-    gravity(elX, elY, _this,bl);
+    if(_this.height() > 67 && bl) {
+      console.log(1)
+      gravity(elX, elY, _this,true);
+    } else {
+      console.log(2)
+      gravity(elX, elY, _this,false);
+    }
   }
 }
 
+window.Gtimer = null;
 function gravity(elX, elY, _this,bl) {
-  window.Gtimer = null;
   clearInterval(window.Gtimer);
   if (!bl) return;
   window.Gtimer = setInterval(() => {
