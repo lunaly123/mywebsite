@@ -103,14 +103,14 @@ function silder(num, imgWidth, silderWrapper, prevBtn, nextBtn) {
     move();
   });
 
-  timer = setInterval(move, 2000);
+  timer = setInterval(move, 3000);
 
   silderWrapper.hover(
     () => {
       clearInterval(timer);
     },
     () => {
-      timer = setInterval(move, 2000);
+      timer = setInterval(move, 3000);
     }
   );
 

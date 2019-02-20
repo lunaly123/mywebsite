@@ -17,8 +17,8 @@ $('#nav ul li:gt(0)').click(function() {
         { opacity: 0 },
         {
           duration: 800,
-          complete:() => {
-            $('#showWrapper li').css({bottom:510})
+          complete: () => {
+            $('#showWrapper li').css({ bottom: 140 })
             $('#showWrapper li').css({ 'z-index': '1' })
           }
         }
@@ -34,7 +34,7 @@ $('#nav ul li:gt(0)').click(function() {
     .velocity(
       {
         opacity: 1,
-        bottom:480
+        bottom: 110
       },
       {
         duration: 1000,
@@ -90,15 +90,15 @@ $('#nav ul li:gt(0)').click(function() {
         }
       }
     )
-  gravity(0, 0, $('#news'), false)
-  $('#news').css({
+  gravity(0, 0, $('#tel'), false)
+  $('#tel').css({
     visibility: 'hidden',
-    top: '80px',
-    left: '200%',
+    top: '12px',
+    left: '-200%',
     height: '67px'
   })
 
-  $('#workslatest').velocity(
+  $('#displays').velocity(
     {
       right: '-30%'
     },
@@ -254,3 +254,27 @@ function echarts(el, i) {
     myChart.setOption(option)
   })
 }
+// 打字机文字数组
+let textList = [
+  '1、对前端技术具有浓厚的兴趣，喜欢逛CSDN，博客园等技术论坛。',
+  '2、具备良好的审美能力，有良好的代码编程习惯。',
+  '3、学习适应能力强，愿意不断学习新知识丰富自己。',
+  '4、抗压能力强，有信心在不同的工作强度下进行开发工作。',
+  '5、性格随和，具有良好的团队合作精神。'
+]
+
+let intrLeftList = [
+  '姓名：姚雨青',
+  '性别：男',
+  '学历：本科',
+  '年龄：27',
+  '民族：汉',
+  '邮箱：dbpangzi@gmail.com',
+  '移动电话：18513355645'
+]
+let intrRightList = [
+  '教育经历',
+  '2010.9 — 2014.6 内蒙古农业大学 本科',
+  '工作经历',
+  '2014.6 – 2018.3 北京建工土木工程有限公司机电安装与网络维护'
+]
