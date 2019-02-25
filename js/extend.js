@@ -182,18 +182,18 @@ class Typewriter {
     }
   }
 }
-let timer = null;
-let n = 0;
-function typewriter(el, msg) {
-  el.html(msg.substr(0, n));
-  if (n === msg.length) {
-    n = 0;
-    clearTimeout(timer);
-  } else {
-    n++;
-    console.log(n);
-    timer = setTimeout(() => {
-      typewriter(el, msg);
-    }, 150);
-  }
-}
+// let timer = null;
+// let n = 0;
+// function typewriter(el, msg) {
+//   el.html(msg.substr(0, n));
+//   if (n === msg.length) {
+//     n = 0;
+//     clearTimeout(timer);
+//   } else {
+//     n++;
+//     console.log(n);
+//     timer = setTimeout(() => {
+//       typewriter(el, msg);
+//     }, 150);
+//   }
+// }
